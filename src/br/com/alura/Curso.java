@@ -41,5 +41,25 @@ public class Curso implements Comparable<Curso> {
 		return this.nome.compareTo(outroCurso.getNome());
 	}
 	
+	
+	//métodos que irei aprender no java 8
+	public int getTempoTotal() {
+		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
+		
+		
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "Curso: "+this.nome+" Instrutor: "+this.instrutor+" Tempo total: "+this.getTempoTotal()+ " minutos"+" Aulas: "+
+				this.aulas;
+				
+				}
 
-}
+	}
+	
+
+	
+
+

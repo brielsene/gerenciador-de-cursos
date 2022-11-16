@@ -6,8 +6,8 @@ import java.util.List;
 public class TestaCurso {
 
 	public static void main(String[] args) {
-		Curso javaCurso = new Curso("Java na prática", "Gabriel");
-		Curso python = new Curso("Python na prática", "Gabriel");
+		Curso1 javaCurso = new Curso1("Java na prática", "Gabriel");
+		Curso1 python = new Curso1("Python na prática", "Gabriel");
 		
 		python.adiciona(new Aula("Inicio Python", 15));
 
