@@ -16,6 +16,7 @@ public class TestaAlunos {
 		alunos.add("Gabriel Sene");
 		alunos.add("Joao Melo");
 		alunos.add("Gabriel Sene");
+		alunos.add("Isadora");
 		
 		alunos.remove("Gabriel Sene");
 		
@@ -29,7 +30,7 @@ public class TestaAlunos {
 			System.out.println(aluno);
 		});
 		
-		boolean gabrielEstaMatriculado = alunos.contains("Gabriel Sene");
+		boolean gabrielEstaMatriculado = alunos.contains("Isadora");
 		
 		System.out.println(gabrielEstaMatriculado);
 		

@@ -36,6 +36,8 @@ public class TestandoListas {
 		Collections.sort(aulas);
 		System.out.println(aulas);
 		
+		
+		
 
 	}
 
