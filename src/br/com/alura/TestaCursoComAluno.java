@@ -34,6 +34,8 @@ public class TestaCursoComAluno {
 		}
 		
 		
+		
+		
 //		javaCurso.getAlunos().forEach(alunos-> {
 //			System.out.println(alunos);
 //		});
