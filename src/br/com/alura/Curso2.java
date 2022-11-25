@@ -9,16 +9,15 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-public class Curso implements Comparable<Curso> {
+public class Curso2 implements Comparable<Curso2> {
 	
 	private String nome;
 	private String instrutor;
 	private List<Aula> aulas = new ArrayList<Aula>();
 	private Set<Aluno>alunos = new HashSet<>();
-	private Map<String, Aluno> matriculaParaAlunoNome = new HashMap<>();
-	private Map<Integer, Aluno>matriculaParaAlunoNumero = new HashMap<>();
+	private Map<Integer, Set<Aluno>> matriculaParaAluno = new HashMap<>();
 	
-	public Curso(String nome, String instrutor) {
+	public Curso2(String nome, String instrutor) {
 		this.nome = nome;
 		this.instrutor = instrutor;
 		
@@ -44,7 +43,7 @@ public class Curso implements Comparable<Curso> {
 	}
 
 	@Override
-	public int compareTo(Curso outroCurso) {
+	public int compareTo(Curso2 outroCurso) {
 		// TODO Auto-generated method stub
 		return this.nome.compareTo(outroCurso.getNome());
 	}
@@ -67,9 +66,7 @@ public class Curso implements Comparable<Curso> {
 
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
-		this.matriculaParaAlunoNome.put(aluno.getNome(), aluno);
-		this.matriculaParaAlunoNumero.put(aluno.getNumeroMatricula(), aluno);
-		
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), (Set<Aluno>) aluno);
 		
 		
 		
@@ -87,26 +84,13 @@ public class Curso implements Comparable<Curso> {
 		return this.alunos.contains(a1);
 	}
 
-	public Aluno buscaMatriculadoPorNome(String nome) {
-		if(!matriculaParaAlunoNome.containsKey(nome)) {
-			throw new NoSuchElementException("A Matricula: "+nome+ "Não existe");
+	public Aluno buscaMatriculado(int numero) {
+		if(!matriculaParaAluno.containsKey(numero)) {
+			throw new NoSuchElementException("A Matricula: "+numero+ "Não existe");
 		}
-		return matriculaParaAlunoNome.get(nome);
+		return (Aluno)matriculaParaAluno.get(numero);
 		
 	}
-	
-	//Método com retorno para interagir com nosso map
-	//Map busca muito mais rápido, porque ele já guarda identificando
-	
-	public Aluno buscaMatriculadoPorNumeroMatricula(int numero) {
-		if(!matriculaParaAlunoNumero.containsKey(numero)) {
-			throw new NoSuchElementException("Esse número: "+ numero+ " de Matrícula não existe!");
-			
-		}return matriculaParaAlunoNumero.get(numero);
-				
-	}
-	
-
 
 
 	
